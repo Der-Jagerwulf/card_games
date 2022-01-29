@@ -20,15 +20,9 @@ def card_gen():
 
     number = choice(numbers)  # Generates a number for the card and appends it to the matching list
     handi.append(number)
-    # Places the J, Q and K, based on their integral values. (Must be reworked for blackjack-like cases) [WIP]
-    if number == 11:
-        number = card_values[11]
-    elif number == 12:
-        number = card_values[12]
-    elif number == 13:
-        number = card_values[13]
-    elif number == 14:
-        number = card_values[14]
+    # Places the J, Q, K and A based on their integral values. (Must be reworked for blackjack-like cases) [WIP]
+    if number in card_values:
+        number = card_values[number]
 
     card = (str(number) + suit)  # Actually generates the card and appends it to the exhibition hand
     hande.append(str(card))
@@ -41,7 +35,3 @@ x = int(input('Quantas cartas gerar? '))
 
 for r in range(0, x):
     card_gen()
-
-print(*hande, sep=', ')
-print(*handi, sep=', ')
-quit()
